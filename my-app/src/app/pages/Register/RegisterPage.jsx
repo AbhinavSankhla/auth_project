@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
+// import {bgimg} from '../../public' 
 
 export default function Register() {
   const router = useRouter();
@@ -150,9 +151,14 @@ export default function Register() {
   //abc!123ABC098
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4 sm:px-6 lg:px-8">
-      <div className="my-10 w-full max-w-md p-8 space-y-6 bg-gray-800 text-white rounded-md shadow-lg sm:mx-auto">
-        <h2 className="text-2xl font-bold text-center">Create an account</h2>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4 sm:px-6 lg:px-8"   style={{
+      backgroundImage: `url('/bgimg2.jpg')`,
+      backgroundSize: 'cover', // Ensures the image covers the container
+      backgroundPosition: 'center', // Centers the image
+      backgroundRepeat: 'no-repeat', // Prevents the image from repeating
+    }}>
+      <div className="my-10 w-full max-w-md p-8 space-y-6 text-white rounded-md shadow-lg sm:mx-auto bg-opacity-25 bg-black border-[1px]">
+        <h2 className="text-2xl font-bold text-center text-white">Create an account</h2>
         <form className="space-y-4" onSubmit={handleFormSubmit}>
           {/* Email Input */}
           <div>
@@ -163,7 +169,7 @@ export default function Register() {
               id="email"
               onChange={(e) => { setData({ ...data, email: e.target.value }) }}
               placeholder="name@company.com"
-              className="w-full px-4 py-2 mt-1 text-black bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+              className="w-full px-4 py-2 mt-1 rounded-md focus:outline-none text-white bg-gray-700 focus:border focus:border-gray-100"
             />
             {/* condition to remove span from html element if there is no error*/}
             {errors.email && <span className='text-[red]'>{errors.email}</span>}
@@ -191,41 +197,41 @@ export default function Register() {
                 id="password"
                 onChange={(e) => { setData({ ...data, password: e.target.value }) }}
                 placeholder="Enter password"
-                className="w-full px-4 py-2 mt-1 text-black bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-2 mt-1 rounded-md focus:outline-none text-white bg-gray-700 focus:border focus:border-gray-100"
               />
               {errors.password && <span className='text-[red]'>{errors.password}</span>}
             </div>
 
             {/* Confirm Password Input */}
             <div>
-              <label className="block text-sm font-medium mb-1" htmlFor="confirmPassword">Confirm password</label>
+              <label className="block text-sm font-medium mb-1 mt-3" htmlFor="confirmPassword">Confirm password</label>
               <input
                 type="password"
                 name='confirmPassword'
                 id="confirmPassword"
                 onChange={(e) => { setData({ ...data, cpassword: e.target.value }) }}
-                placeholder="Confirm password"
-                className="w-full px-4 py-2 mt-1 text-black bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                placeholder="Confirm Password"
+                className="w-full px-4 py-2 mt-1 rounded-md focus:outline-none text-white bg-gray-700 focus:border focus:border-gray-100"
               />
               {errors.cpassword && <span className='text-[red]'>{errors.cpassword}</span>}
             </div>
 
             {/* OTP Input */}
             <div>
-              <label className="block text-sm font-medium mb-1" htmlFor="otp">OTP</label>
+              <label className="block text-sm font-medium mb-1 mt-3" htmlFor="otp">OTP</label>
               <input
                 type="text"
                 name='otp'
                 id="otp"
                 onChange={(e) => { setData({ ...data, otp: e.target.value }) }}
                 placeholder="Enter 6 digit OTP"
-                className="w-full px-4 py-2 mt-1 text-black bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-2 mt-1 rounded-md focus:outline-none text-white bg-gray-700 focus:border focus:border-gray-100"
               />
               {errors.otp && <span className='text-[red]'>{errors.otp}</span>}
             </div>
 
             {/* Terms and Conditions Checkbox */}
-            <div className="flex items-center">
+            <div className="flex items-center mt-3">
               <input
                 type="checkbox"
                 id="terms"
@@ -251,7 +257,7 @@ export default function Register() {
           {/* Login Link */}
           <p className="mt-4 text-center text-sm">
             Already have an account?{" "}
-            <a href="/login" className="text-blue-500 hover:underline">
+            <a href="/pages/login" className="text-blue-500 hover:underline">
               Login here
             </a>
           </p>
