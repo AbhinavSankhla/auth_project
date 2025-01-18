@@ -5,11 +5,11 @@ require('dotenv').config();
 
 //create transporter 
 const transporter = nodemailer.createTransport({
-    service : 'sandbox.smtp.mailtrap.io',
+    // service : 'sandbox.smtp.mailtrap.io',
     host: "sandbox.smtp.mailtrap.io",
     port: 2525,
     auth : {
-        user : "d3a8f31f67768c",
+        user : "39a4245f57323f",
         pass : process.env.ADMIN_APP_PASSWORD
     }
 });
@@ -62,7 +62,7 @@ const otpGenerator = async (req, res) => {
 </head>
 <body>
     <div class="container">
-        <h1>Welcome!</h1>
+        <h1>OTP for Registration</h1>
         <p>
             Thank you for registration.
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat dolores quisquam sapiente cupiditate. Magni, temporibus quia ipsam distinctio quod, quae labore quam reiciendis vel omnis repellendus natus architecto error autem.

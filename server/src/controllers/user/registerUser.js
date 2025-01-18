@@ -1,5 +1,4 @@
-
-const User = require("../../models/User/user")
+const User = require("../../models/user/user")
 const otpSaver = require("../support/otpdata/otpMap")
 
 const registerUser = async(req,res) =>{
